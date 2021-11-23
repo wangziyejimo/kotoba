@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kotoba/views/navigator/tab_navigator.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,6 +25,16 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: TabNavigator(),
+      localizationsDelegates: [
+        RefreshLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('en'),
+        const Locale('zh')
+      ],
+      localeResolutionCallback: (Locale? locale, Iterable<Locale> supportedLocales) {
+        return locale;
+      },
     );
   }
 }
